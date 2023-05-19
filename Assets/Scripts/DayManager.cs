@@ -39,7 +39,6 @@ public class DayManager : MonoBehaviour
 
     public void StartNight()
     {
-        
         mainCamera.backgroundColor = IsDay ? Color.blue : Color.black;
         descriptionText.text = "Werewolfs can kill.";
         sun.SetActive(false);

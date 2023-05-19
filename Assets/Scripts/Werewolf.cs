@@ -24,7 +24,6 @@ public class Werewolf : Role
 
         if(player.Role is Villager)
         {
-            Debug.Log("Você matou um villager");
             text.text = "You killed a villager.";
             Destroy(player.gameObject);
             players.Remove(player);
@@ -33,7 +32,6 @@ public class Werewolf : Role
         }
         else
         {
-            Debug.Log("Você matou um villager");
             text.text = "You killed a detective.";
             Destroy(player.gameObject);
             numberOfVictims++;

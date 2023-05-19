@@ -14,13 +14,11 @@ public class Detective : Role
     {
         if(player.Role is Werewolf)
         {
-            Debug.Log("Você encontrou um werewolf!");
             text.text = "Você encontrou um werewolf!";
             return;
         }
         else
         {
-            Debug.Log("O jogador é uma pessoa normal.");
             text.text = "O jogador é uma pessoa normal.";
             return;
         }

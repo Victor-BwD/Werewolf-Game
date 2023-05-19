@@ -14,10 +14,13 @@ public class DayManager : MonoBehaviour
     private float dayDuration = 30f;
     private float nightDuration = 60f;
     private Camera mainCamera;
+    private GameManager gameManager;
+    private Player player;
     
     private void Start()
     {
         mainCamera = Camera.main;
+        gameManager = FindObjectOfType<GameManager>();
         StartCoroutine(DayNightCycle());
     }
 
@@ -56,6 +59,11 @@ public class DayManager : MonoBehaviour
     public void ChangeToDetectiveText()
     {
         descriptionText.text = "Detective can try find the werewolf";
+    }
+
+    public void TextToDetectiveIsDead()
+    {
+        descriptionText.text = "Detective is dead, skip turn";
     }
 }
 

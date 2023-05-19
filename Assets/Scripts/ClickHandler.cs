@@ -71,13 +71,30 @@ public class ClickHandler : MonoBehaviour
 
         TurnManager.DetectiveTurn = true;
         TurnManager.WerewolfTurn = false;
-        dayManager.ChangeToDetectiveText();
+        if (gameManager.AreDetectiveAlive() && player.Role is Detective && player.Role.IsAlive)
+        {
+            dayManager.ChangeToDetectiveText();
+        }
+        else
+        {
+            dayManager.TextToDetectiveIsDead();
+        }
+        
     }
 
     private void HandleDetectiveTurn()
     {
+
+        if (gameManager.AreDetectiveAlive() && player.Role is Detective && player.Role.IsAlive)
+        {
+            Detective.Investigate(player, gameManager.HelpText);
+        }
+        else
+        {
+            Debug.Log("O detetive está morto ou não é o turno do detetive. Pular turno do detetive.");
+        }
+
         Debug.Log("Ação do detetive para o jogador: " + player.name);
-        Detective.Investigate(player, gameManager.HelpText);
         TurnManager.DetectiveTurn = false;
         TurnManager.PeopleTurn = true;
         dayManager.StartDay();

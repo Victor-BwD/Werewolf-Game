@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Werewolf : Role
 {
-    public static int numberOfVictims { get; private set; }
 
     public Werewolf()
     {
@@ -27,14 +26,12 @@ public class Werewolf : Role
             text.text = "You killed a villager.";
             Destroy(player.gameObject);
             players.Remove(player);
-            numberOfVictims++;
             return;
         }
         else
         {
             text.text = "You killed a detective.";
             Destroy(player.gameObject);
-            numberOfVictims++;
             return;
         }
     }

@@ -74,4 +74,11 @@ public class GameManager : MonoBehaviour
     {
         return players.Any(player => player.Role is Villager);
     }
+
+    public bool AreDetectiveAlive()
+    {
+        return players.Any(player => player.Role is Detective);
+    }
+
+    
 }

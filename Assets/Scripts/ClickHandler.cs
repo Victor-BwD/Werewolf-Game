@@ -20,8 +20,12 @@ public class ClickHandler : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (ReferenceEquals(player, null)) return;
+
         if (player != null)
         {
+            
+
             if (!gameManager.AreWerewolvesAlive())
             {
                 HandleVillagersWin();
@@ -48,6 +52,8 @@ public class ClickHandler : MonoBehaviour
     private void HandleVillagersWin()
     {
         gameManager.VillageScreenWin.SetActive(true);
+
+        if (ReferenceEquals(player, null)) return;
 
         foreach (var player in gameManager.players)
         {
